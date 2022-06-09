@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>QUIZ</title>
+</head>
+<body>
+    <header>
+        <h1>QUIZ</h1>
+    </header>
+    <main class="1">
+        <div class="quiz__starter">
+            <button class="starter">Commencer le QUIZ</button>
+        </div>
+        <div class="quiz__container">
+            <div class="quiz__number">
+                <h2>Question <span class="number"></span></h2>
+            </div>
+            <div class="quiz__question">
+                <p class="question"></p>
+            </div>
+            <div class="quiz__answers">
+                <button class='answer' value="0"></button>
+                <button class='answer' value="1"></button>
+                <button class='answer' value="2"></button>
+                <button class='answer' value="3"></button>
+            </div>
+            <div class="quiz__validation">
+                <button class="validate">Valider mon choix</button>
+            </div>
+            <div class="quiz__finisher">
+                <button class="finisher">Voir les résultats</button>
+            </div>
+            <div class="quiz__next">
+                <button class="next">Question suivante</button>
+            </div>
+            <div class="quiz__message">
+                <p class="message"></p>
+            </div>
+        </div>
+        <div class="quiz__score">
+            <p>Votre score est de <span class="score">0</span>/20 !</p>
+            <div class="quiz__recap">
+
+            </div>
+            <button class="replay">Rejouer</button>
+        </div>
+        
+    </main>
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>

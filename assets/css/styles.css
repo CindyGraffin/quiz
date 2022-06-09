@@ -1,0 +1,24 @@
+/* =========== GLOBAL ============ */
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========== QUIZ VALIDATION ============ */
+.quiz__container {
+    display: none;
+}
+.quiz__score {
+    display: none;
+}
+.quiz__validation {
+    margin-top: 2rem;
+}
+.quiz__next {
+    display: none;
+}
+.answer:focus {
+    background-color: aqua;
+}
+.quiz__finisher {
+    display: none;
+}
