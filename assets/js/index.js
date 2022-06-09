@@ -197,7 +197,6 @@ const verifyAnswer = (responseChoice) => {
         playerScore += 1;
         quizMessage.innerText = 'Bonne réponse trop fort !';
         pushQuestionResponse('Bonne réponse !')
-        console.log(userQuestionsResponses)
     } else {
         quizMessage.innerText = 'Mauvaise réponse, fais un effort !';
         pushQuestionResponse('Mauvaise réponse !')
