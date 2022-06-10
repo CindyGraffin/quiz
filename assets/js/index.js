@@ -1,3 +1,5 @@
+import { sortedQuestionsAndAnswers } from "./questions.js";
+
 /* =========== SELECTORS ============ */
 /* quiz container */
 const quizContainer = document.querySelector('.quiz__container');
@@ -29,92 +31,23 @@ const replayButton = document.querySelector('.replay');
 const recapContainer = document.querySelector('.quiz__recap');
 
 
-
 /* =========== QUESTIONS AND ANSWERS ============ */
-const questionsAndAnswers = [
-    ['Qui a remporté le championnat pilote de formule 1 en 2021 ?',
-        ['Lewis Hamilton', 'Max Verstappen', 'Charles Leclerc', 'Valteri Bottas'],
-        1
-    ],
-    ['Parmi ces animaux, lequel peut vivre le plus longtemps ?',
-        ['La méduse', 'L\'éléphant', 'Le homard', 'La baleine'],
-        0
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['Combien de rayures y a-t-il sur le drapeau américain ?',
-        ['10', '11', '12', '13'],
-        3
-    ],
-    ['Quel animal est nomé rainette ?',
-        ['La grenouille', 'L\'oie', 'La souris', 'La Mangouste'],
-        0
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-    ['En quelle année est sorti le tout premier jeu vidéo Tomb Raider ?',
-        ['1992', '1994', '1996', '1998'],
-        2
-    ],
-];
-const goodAnswersIndex = [1, 0, 2];
-
+console.log(sortedQuestionsAndAnswers)
+/* function that shuffle the questions and answers array */
+const shuffleQuestionsAndAnswers = (questionsAndAnswers) => {
+    let array = questionsAndAnswers
+    let newArray = [];
+    for (let i = 0; i < 20; i++) {
+        let randomIndex = Math.floor(Math.random()* (array.length-1))
+        console.log(randomIndex);
+        let element = array[randomIndex];
+        array.splice(randomIndex, 1)
+        newArray.push(element)
+    }
+    return newArray
+}
+let questionsAndAnswers = shuffleQuestionsAndAnswers(sortedQuestionsAndAnswers)
+console.log(questionsAndAnswers)
 /* =========== ASSESMENTS ============ */
 const assessments = [
     'Tu es réélement un génie !',
@@ -160,6 +93,7 @@ const displayAnswers = (quizAnswers) => {
 /* function that display the question, her number and the four answers */
 const displayQuestionAndAnswers = (quizAnswers) => {
     questionNumberContainer.innerText = questionNumber;
+    console.log(questionsAndAnswers[questionNumber-1][0])
     questionContainer.innerText = questionsAndAnswers[questionNumber-1][0]
     displayAnswers(quizAnswers)
 }
@@ -206,10 +140,10 @@ validateAnswerButton.addEventListener('click', () => {
     verifyAnswer(responseChoice)
     questionNumber++
     validateAnswerButton.style.display = 'none';
-    if (questionNumber <= 5) {
+    if (questionNumber <= 20) {
         nextQuestionButtonContainer.style.display = 'block';
     }
-    if (questionNumber > 5) {
+    if (questionNumber > 20) {
         resultButtonContainer.style.display = 'block';
     }
 })
@@ -261,3 +195,5 @@ replayButton.addEventListener('click', () => {
     validateAnswerButton.style.display = 'block';
     quizMessage.innerText = '';
 })
+
+
