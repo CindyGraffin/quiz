@@ -1,9 +1,44 @@
 /* =========== GLOBAL ============ */
 * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    font-weight: 600;
+}
+body {
+    background-image: url('../images/game.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1 {
+    font-size: 4.5rem;
+    text-shadow: 0 1px 0 #ccc, 
+                0 2px 0 #c9c9c9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #aaa,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 20px 20px rgba(0,0,0,.15);
+}
+button {
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    box-shadow: 2px 2px 1px 1px rgba(255, 255, 255, 0.555);
+    color: rgb(53, 113, 148);
+    width: 10.5rem;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-/* =========== QUIZ VALIDATION ============ */
+/* =========== QUIZ  ============ */
+
 .quiz__container {
     display: none;
 }
@@ -17,8 +52,26 @@
     display: none;
 }
 .answer:focus {
-    background-color: aqua;
+    background-color: rgb(250, 247, 74);
 }
 .quiz__finisher {
     display: none;
+}
+header {
+    margin-left: 5rem;
+}
+main {
+    margin-left: 5rem;
+}
+.quiz__answers {
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+    width: 30rem;
+    row-gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.answer {
+    height: 2.3rem;
+    width: 20rem;
 }

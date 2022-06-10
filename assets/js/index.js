@@ -141,8 +141,6 @@ const attributeAssessment = (grade) => {
     }
 }
 
-
-
 /* =========== GAME LOGIC ============ */
 /* num of the question */
 let questionNumber = 1;
@@ -155,7 +153,7 @@ let userQuestionsResponses = [];
 const displayAnswers = (quizAnswers) => {
     let answerIndex = 0; 
     quizAnswers.forEach((answer) => {
-        answer.innerText = questionsAndAnswers[questionNumber-1][1][answerIndex]
+        answer.innerText = (answerIndex +1) + '. ' + questionsAndAnswers[questionNumber-1][1][answerIndex]
         answerIndex++;
     })
 }
@@ -224,25 +222,35 @@ nextQuestionButton.addEventListener('click', () => {
     displayQuestionAndAnswers(quizAnswers);
 })
 
-/* event listener that allow to show the results*/
-resultButton.addEventListener('click', () => {
-    quizMessage.innerText = '';
-    quizContainer.style.display = 'none';
-    quizScore.innerText = playerScore;
-    quizScoreContainer.style.display = 'block';
+/* function that create three paragraphs element for each question/response and tells if it was good or not */
+const createRecapElement = (userQuestionsResponses) => {
     userQuestionsResponses.forEach(questionResponse => {
         let question = document.createElement('p');
         let userResponse = document.createElement('p');
         let goodOrFalse = document.createElement('p');
-        question.innerHTML = `<p>${questionResponse[0]}</p>`
+        question.innerHTML = `<p><i class="uil uil-question-circle"></i>${questionResponse[0]}</p>`
         userResponse.innerHTML = `<p>${questionResponse[1]}</p>`
         goodOrFalse.innerHTML = `<p>${questionResponse[2]}</p>`
         recapContainer.appendChild(question);
         recapContainer.appendChild(userResponse);
         recapContainer.appendChild(goodOrFalse);
     })
+}
+
+/* event listener that allow to show the results*/
+resultButton.addEventListener('click', () => {
+    quizMessage.innerText = attributeAssessment(playerScore);
+    quizContainer.style.display = 'none';
+    quizScore.innerText = playerScore;
+    quizScoreContainer.style.display = 'block';
+    let scoreMessage = document.createElement('p');
+    scoreMessage.innerText = attributeAssessment(playerScore);
+    recapContainer.appendChild(scoreMessage);
+    createRecapElement(userQuestionsResponses);
+    
 })
 
+/* event listener that allow to replay the game */
 replayButton.addEventListener('click', () => {
     questionNumber = 1;
     playerScore = 0;
@@ -251,4 +259,5 @@ replayButton.addEventListener('click', () => {
     starterButton.style.display = 'block';
     resultButtonContainer.style.display = 'none';
     validateAnswerButton.style.display = 'block';
+    quizMessage.innerText = '';
 })
