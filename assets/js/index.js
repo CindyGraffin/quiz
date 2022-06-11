@@ -94,6 +94,7 @@ const displayAnswers = (quizAnswers) => {
 const displayQuestionAndAnswers = (quizAnswers) => {
     questionNumberContainer.innerText = questionNumber;
     console.log(questionsAndAnswers[questionNumber-1][0])
+    questionContainer.classList.add('.question');
     questionContainer.innerText = questionsAndAnswers[questionNumber-1][0]
     displayAnswers(quizAnswers)
 }
