@@ -83,3 +83,11 @@ main {
 .quiz__score {
     width: 28rem;
 }
+
+@media only screen and (max-width: 550px) {
+    .question,
+    .quiz__answers,
+    .quiz__score {
+        width: 20rem;
+    }
+}
