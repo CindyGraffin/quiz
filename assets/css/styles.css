@@ -85,9 +85,18 @@ main {
 }
 
 @media only screen and (max-width: 550px) {
+    header {
+        margin-left: 1rem;
+    }
+    main {
+        margin-left: 1rem;
+    }
     .question,
     .quiz__answers,
     .quiz__score {
         width: 20rem;
+    }
+    button {
+        width: 15rem;
     }
 }
