@@ -69,7 +69,7 @@ export const sortedQuestionsAndAnswers = [
         0
     ],
     ['Lequel de ces jeux vidéos n\'a jamais vu sortir d\'adaption cinématographique ?',
-        ['Pixels', 'Dark Souls', 'Super Mario Bros', 'Doom'],
+        ['Pac-Man', 'Dark Souls', 'Super Mario Bros', 'Doom'],
         1
     ],
     ['Laquelle de ces manières ne permet pas de tuer un sim ?',

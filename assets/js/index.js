@@ -115,8 +115,13 @@ starterButton.addEventListener('click', () => {
 
 /* event listener that updates the answer's choice of the user */
 quizAnswers.forEach((answer) => {
-    answer.addEventListener('click', (e) => {
+    answer.addEventListener('click', () => {
+        quizAnswers.forEach(answer => {
+            answer.style.backgroundColor = 'aliceblue';
+        })
         responseChoice = answer.value;
+        answer.style.backgroundColor = 'yellow';
+
     })
 })
 
@@ -151,6 +156,9 @@ validateAnswerButton.addEventListener('click', () => {
 
 /* event listner that allow to display the next question with it answers */
 nextQuestionButton.addEventListener('click', () => {
+    quizAnswers.forEach(answer => {
+        answer.style.backgroundColor = 'aliceblue';
+    })
     validateAnswerButton.style.display = 'block';
     nextQuestionButtonContainer.style.display = 'none';
     quizMessage.innerText = '';
